@@ -1,0 +1,19 @@
+{
+  "name": "vladan-me/fingerprint",
+  "description": "Provides a custom implementation of fingerprint and ngram algorithms in PHP",
+  "keywords": ["fingerprint", "ngram", "elasticsearch"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vladan Djokic",
+      "email": "vladan.me@gmail.com",
+      "homepage": "https://github.com/vladan-me"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": { "Vladanme\\Fingerprint\\": "src/" }
+  }
+}
