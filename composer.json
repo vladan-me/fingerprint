@@ -17,6 +17,6 @@
     "vladan-me/fingerprint-elasticsearch": "~1.0"
   },
   "autoload": {
-    "psr-4": { "Vladanme\\Fingerprint\\": "src/" }
+    "psr-4": { "Vladanme\\Fingerprint\\": "src/Vladanme/Fingerprint/" }
   }
 }
