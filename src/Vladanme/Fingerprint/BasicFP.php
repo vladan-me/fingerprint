@@ -2,7 +2,7 @@
 
 namespace Vladanme\Fingerprint;
 
-class Fingerprint {
+class BasicFP {
   // Core stuff.
   public $string;
   public $fingerprint = '';

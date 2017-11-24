@@ -2,7 +2,7 @@
 
 namespace Vladanme\Fingerprint;
 
-class Title extends Fingerprint {
+class Title extends BasicFP {
  use TitleTrait;
 
   public function __construct($string) {

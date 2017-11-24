@@ -2,7 +2,7 @@
 
 namespace Vladanme\Fingerprint;
 
-class Street extends Fingerprint {
+class Street extends BasicFP {
   use StreetTrait;
 
   public function __construct($string) {

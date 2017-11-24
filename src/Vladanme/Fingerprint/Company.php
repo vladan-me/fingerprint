@@ -2,7 +2,7 @@
 
 namespace Vladanme\Fingerprint;
 
-class Company extends Fingerprint {
+class Company extends BasicFP {
   use CompanyTrait;
 
   public function __construct($string) {
