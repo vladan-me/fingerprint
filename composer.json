@@ -18,5 +18,8 @@
   },
   "autoload": {
     "psr-4": { "Vladanme\\Fingerprint\\": "src/Vladanme/Fingerprint/" }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
   }
 }
