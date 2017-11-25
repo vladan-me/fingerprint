@@ -2,7 +2,7 @@
 
 namespace Vladanme\Fingerprint;
 
-class BasicFP {
+class Fingerprint {
   // Core stuff.
   public $string;
   public $fingerprint = '';
@@ -38,7 +38,17 @@ class BasicFP {
   protected $all_rem = [];
   protected $all_syn_rem = [];
 
-  public function __construct($string) {
+  public function __construct($string, FingerprintType $fingerprintType) {
+    $this->eng_rem = $fingerprintType->getEngRem();
+
+    $this->add_syn = $fingerprintType->getAddSyn();
+    $this->add_rem = $fingerprintType->getAddRem();
+    $this->add_syn_rem = $fingerprintType->getAddSynRem();
+
+    $this->all_syn = $fingerprintType->getAllSyn();
+    $this->all_rem = $fingerprintType->getAllRem();
+    $this->all_syn_rem = $fingerprintType->getAllSynRem();
+
     $this->string = $string;
     $this->rem = array_merge($this->rem, $this->eng_rem, $this->add_rem);
     $this->syn = array_merge($this->syn, $this->add_syn);
