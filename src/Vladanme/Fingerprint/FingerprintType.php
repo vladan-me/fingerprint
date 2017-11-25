@@ -52,4 +52,17 @@ class FingerprintType {
   public function getAllSynRem() {
     return $this->all_syn_rem;
   }
+
+  public function retrieveAllSynonyms() {
+    return array_merge($this->add_syn, $this->all_syn);
+  }
+
+  public function retrieveAllRemovals() {
+    return array_merge($this->add_rem, $this->all_rem, $this->eng_rem);
+  }
+
+  public function retrieveAllSynonymsAndRemovals() {
+    return array_merge($this->add_syn_rem, $this->all_syn_rem);
+  }
+
 }
