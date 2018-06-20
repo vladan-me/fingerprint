@@ -6,8 +6,9 @@ use Vladanme\Fingerprint\Fingerprint;
 use Vladanme\Fingerprint\FingerprintType;
 use Vladanme\Fingerprint\City;
 use Vladanme\Fingerprint\Title;
+use PHPUnit\Framework\TestCase;
 
-class FingerprintTest extends \PHPUnit_Framework_TestCase
+class FingerprintTest extends TestCase
 {
 
     public function testInit()
@@ -19,7 +20,6 @@ class FingerprintTest extends \PHPUnit_Framework_TestCase
         $actualResult = $class->getEngRem();
 
         $this->assertEquals($expectedResult, $actualResult);
-
     }
 
     public function testProp()
@@ -31,6 +31,31 @@ class FingerprintTest extends \PHPUnit_Framework_TestCase
         $actualResult = $class->getEngRem();
 
         $this->assertEquals($expectedResult, $actualResult);
+    }
+
+    public function testSetString()
+    {
+        $fp = new Fingerprint('Quick brown fox jumps over the lazy dog', new FingerprintType());
+        $fp->setString('brown dog fox jumps lazy over quick the');
+
+        $this->assertEquals('brown dog fox jumps lazy over quick the', $fp->fingerprint());
+    }
+
+    public function testFingerprintWithNoClean()
+    {
+        $fp = new Fingerprint('Quick brown fox jumps over the lazy dog', new FingerprintType());
+        $fp->setString('brown dog fox jumps lazy over quick the');
+
+        $this->assertEquals('brown dog fox jumps lazy over quick the', $fp->fingerprint(false));
+    }
+
+    public function testNgram()
+    {
+        $fingerPrint = new Fingerprint('Quick#brown fox jumps over the lazy dog', new FingerprintType());
+        $this->assertEquals('azbrckdoelerfoheicjukblampnfogovowoxpsqurortsothuiumvewnxjydzy', $fingerPrint->ngram());
+
+        $fingerPrint = new Fingerprint('Quick#brown fox jumps over the lazy dog', new FingerprintType());
+        $this->assertEquals('#bQuazbrckdoelerfoheicjuk#lampnfogovowoxpsrortsothuiumvewnxjydzy', $fingerPrint->ngram(false));
     }
 
     public function testFingerprintBasic()

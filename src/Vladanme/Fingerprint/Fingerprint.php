@@ -229,6 +229,9 @@ class Fingerprint
         $string = $this->string;
 
         // Remove all blank spaces, basically merge words.
+        if (is_array($string)) {
+            $string = implode('', $string);
+        }
         $string = str_replace(' ', '', $string);
 
         $len = strlen($string);
